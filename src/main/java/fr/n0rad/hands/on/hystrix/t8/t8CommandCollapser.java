@@ -1,6 +1,5 @@
 package fr.n0rad.hands.on.hystrix.t8;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import com.netflix.hystrix.HystrixCollapser;
@@ -29,10 +28,7 @@ public class t8CommandCollapser extends HystrixCollapser<List<Greeting>, Greetin
 
     @Override
     protected void mapResponseToRequests(List<Greeting> batchResponse, Collection<CollapsedRequest<Greeting, String>> collapsedRequests) {
-        int count = 0;
-        for (CollapsedRequest<Greeting, String> request : collapsedRequests) {
-            request.setResponse(batchResponse.get(count++));
-        }
+        // TODO spread the batch response into the collapsed requests
     }
 
     private static final class BatchCommand extends HystrixCommand<List<Greeting>> {
@@ -47,11 +43,8 @@ public class t8CommandCollapser extends HystrixCollapser<List<Greeting>, Greetin
 
         @Override
         protected List<Greeting> run() throws Exception {
-            List<Greeting> greetings = new ArrayList<>(requests.size());
-            for (CollapsedRequest request : requests) {
-                greetings.add(new Greeting("hello, " + request.getArgument()));
-            }
-            return greetings;
+            // TODO run a batch command for multiple request
+            return null;
         }
     }
 }

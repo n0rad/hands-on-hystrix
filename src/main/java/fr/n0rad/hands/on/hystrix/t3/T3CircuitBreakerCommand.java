@@ -14,9 +14,8 @@ public class T3CircuitBreakerCommand extends HystrixCommand<Greeting> {
         this.countService = countService;
     }
 
-    @Override
+    @Override // TODO force the run to timeout
     protected Greeting run() throws Exception {
-        Thread.sleep(2000);
         Greeting greeting = new Greeting("Bonjour Arnaud, laisse moi un message");
         countService.increment();
         return greeting;

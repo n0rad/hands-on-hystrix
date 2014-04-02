@@ -13,6 +13,5 @@ public class T22FallbackCommandTest {
 
         Assertions.assertThat(greeting).isNotNull();
         Assertions.assertThat(greeting.getGreetingText()).isEqualTo("Bonjour Arnaud, laisse moi un message");
-
     }
 }

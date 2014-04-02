@@ -1,12 +1,9 @@
 package fr.n0rad.hands.on.hystrix.t6;
 
-import com.netflix.hystrix.contrib.servopublisher.HystrixServoMetricsPublisher;
-import com.netflix.hystrix.strategy.HystrixPlugins;
-
 public class T6JmxStatMain {
 
     public static void main(String[] args) throws Exception {
-        HystrixPlugins.getInstance().registerMetricsPublisher(HystrixServoMetricsPublisher.getInstance());
+        // TODO register metrics system
 
         new T6JmxStatCommand().execute(); // hystrix need at least an execution to push something into JMX
 

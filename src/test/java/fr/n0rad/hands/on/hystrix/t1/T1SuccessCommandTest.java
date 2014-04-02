@@ -44,6 +44,8 @@ public class T1SuccessCommandTest {
         Assertions.assertThat(done[0]).isTrue();
     }
 
+// just to know :
+//
 //    new Observer<String>() {
 //
 //        @Override

@@ -13,6 +13,13 @@ import fr.n0rad.hands.on.hystrix.t99.voicemail.Voicemail;
 import fr.n0rad.hands.on.hystrix.t99.voicemail.Voicemail.CallType;
 import fr.norad.jaxrs.client.server.rest.RestSession;
 
+// TODO just naviguate through the tests that simulate a user calling the voicemail server,
+// TODO the voicemail server get the info from the storage backend
+// TODO the storage backend has 2 bug to demonstrate hystrix :
+// TODO - null pointer when reading voicemails on an empty list
+// TODO - when interacting with BOB, the backend will lag and timeout
+//
+// TODO run an hystrix dashboard and run tests to see how it works
 public class VoicemailPlatformIT {
 
     public Storage storage = rest().buildClient(Storage.class, VoicemailPlatform.STORAGE_URL);

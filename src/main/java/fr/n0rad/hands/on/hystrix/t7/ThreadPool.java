@@ -1,6 +1,8 @@
 package fr.n0rad.hands.on.hystrix.t7;
 
 public class ThreadPool {
+//    TODO just to know
+//
 //    HystrixThreadPoolKey.Factory.asKey("HelloWorldPool")
 //
 //    Here is a simple example:

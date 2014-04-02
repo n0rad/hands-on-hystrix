@@ -11,12 +11,10 @@ public class T2FallbackCommand extends HystrixCommand<Greeting> {
 
     @Override
     protected Greeting run() throws Exception {
-        Thread.sleep(1000);
+        Thread.sleep(2000); // this will take too long and fallback
         return new Greeting("Bonjour Arnaud, laisse moi un message");
     }
 
-    @Override
-    protected Greeting getFallback() {
-        return new Greeting("Bonjour, laisse moi un message");
-    }
+    // TODO should have a fallback
+
 }

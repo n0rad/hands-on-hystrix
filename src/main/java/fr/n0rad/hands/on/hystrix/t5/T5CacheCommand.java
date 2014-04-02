@@ -3,8 +3,6 @@ package fr.n0rad.hands.on.hystrix.t5;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandKey;
-import com.netflix.hystrix.HystrixRequestCache;
-import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategyDefault;
 import fr.n0rad.hands.on.hystrix.CountService;
 import fr.n0rad.hands.on.hystrix.Greeting;
 
@@ -28,12 +26,9 @@ public class T5CacheCommand extends HystrixCommand<Greeting> {
         return greeting;
     }
 
-    @Override
-    protected String getCacheKey() {
-        return name;
-    }
+    // TODO you need a cache key
 
     public static void flushCache(String name) {
-        HystrixRequestCache.getInstance(key, HystrixConcurrencyStrategyDefault.getInstance()).clear(name);
+        // TODO flush cache
     }
 }

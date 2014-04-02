@@ -1,14 +1,13 @@
 package fr.n0rad.hands.on.hystrix.t2;
 
-import static com.netflix.hystrix.HystrixCommandProperties.Setter;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import fr.n0rad.hands.on.hystrix.Greeting;
 
 public class T22FallbackCommand extends HystrixCommand<Greeting> {
     protected T22FallbackCommand() {
-        super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("T22Greeting"))
-                .andCommandPropertiesDefaults(Setter().withExecutionIsolationThreadTimeoutInMilliseconds(2000)));
+        super(HystrixCommandGroupKey.Factory.asKey("T22Greeting"));
+        // TODO configure the command with a timeout at 2000ms
     }
 
     @Override
